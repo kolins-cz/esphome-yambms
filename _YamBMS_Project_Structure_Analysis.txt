@@ -1,0 +1,200 @@
+YamBMS Project Architecture Analysis
+=====================================
+
+Generated: December 10, 2025
+Project: esphome-yambms
+Branch: add-esp32c3-xiao-board
+
+OVERVIEW
+========
+YamBMS (Yet another multi-BMS Merging Solution) is a modular ESPHome-based system
+that combines data from multiple Battery Management Systems (BMS) and current shunts
+to provide unified battery management and communication with solar inverters.
+
+MAIN CONFIGURATION FILES
+========================
+├── pv-battery.yaml                     (Main user config)
+├── pv-battery.c3.yaml                  (ESP32-C3 variant)
+├── pv-jk.yaml                          (JK BMS specific)
+├── YamBMS_RP_*.yaml                    (Remote Package examples)
+├── YamBMS_LP_*.yaml                    (Local Package examples)
+└── examples/
+    ├── single-node/                    (Single node setups)
+    └── multi-node/                     (Multi-node setups)
+
+CORE PACKAGE STRUCTURE
+=====================
+
+packages/base/ - Core ESPHome Configurations
+--------------------------------------------
+├── device_base.yaml                   (→ includes device_base_esphome.yaml)
+├── device_base_esphome.yaml           (Basic ESPHome setup)
+├── device_base_wifi.yaml              (WiFi configuration)
+├── device_base_ethernet.yaml          (Ethernet configuration)
+├── device_debug_ESP32.yaml            (Debug & monitoring for ESP32)
+└── device_debug_ESP32_PSRAM.yaml      (Debug with PSRAM support)
+
+packages/board/ - Hardware-Specific Configurations
+--------------------------------------------------
+├── board_ESP32_*.yaml                 (ESP32 variants)
+├── board_ESP32-C3_*.yaml              (ESP32-C3 variants)
+├── board_ESP32-S3_*.yaml              (ESP32-S3 variants)
+├── board_RP2040_RPi_Pico.yaml         (Raspberry Pi Pico)
+└── board_options_*.yaml               (Interface and feature options)
+    ├── itf_uart_*.yaml                (UART interfaces 1-6)
+    ├── itf_canbus_*.yaml              (CAN bus interfaces)
+    ├── itf_modbus_*.yaml              (Modbus interfaces)
+    ├── display_*.yaml                 (Display configurations)
+    ├── PSRAM_*.yaml                   (PSRAM options)
+    └── wifi_ap.yaml                   (WiFi Access Point)
+
+packages/yambms/ - Core YamBMS Logic
+-----------------------------------
+├── yambms.yaml                        (Main YamBMS controller)
+│   ├── → yambms_combine.yaml          (Data combination logic)
+│   ├── → yambms_service.yaml          (Update services)
+│   ├── → yambms_auto_cvl.yaml         (Auto charge voltage limit)
+│   ├── → yambms_auto_ccl.yaml         (Auto charge current limit)
+│   ├── → yambms_auto_dcl.yaml         (Auto discharge current limit)
+│   └── → yambms_auto_float.yaml       (Auto float voltage)
+├── yambms_canbus*.yaml                (CAN bus communication)
+├── yambms_rs485_pylon*.yaml           (RS485 Pylon protocol)
+└── yambms_web_server.yaml             (Web interface)
+
+packages/bms/ - BMS Integrations
+-------------------------------
+├── bms_combine_*.yaml                 (BMS-specific integration packages)
+│   ├── JK_BLE_*.yaml                  (JK BMS via Bluetooth)
+│   ├── JK_UART_*.yaml                 (JK BMS via UART)
+│   ├── JK_RS485_*.yaml                (JK BMS via RS485)
+│   ├── JBD_*.yaml                     (JBD/Xiaoxiang BMS)
+│   ├── SEPLOS_*.yaml                  (SEPLOS BMS V1/V2/V3)
+│   ├── DEYE_CAN_*.yaml                (DEYE CAN modules)
+│   ├── BASEN_RS485_*.yaml             (BASEN RS485 BMS)
+│   ├── EG4_*.yaml                     (EG4 BMS variants)
+│   └── FAKE.yaml                      (Fake/simulation BMS)
+├── bms_sensors_*.yaml                 (Sensor definitions per BMS type)
+├── bms_errors_bitmask_*.yaml          (Error handling per BMS type)
+├── bms_modbus_*.yaml                  (Modbus interfaces)
+├── bms_base.yaml                      (Base BMS functionality)
+├── bms_combine.yaml                   (BMS data combination logic)
+├── bms_battery_soh.yaml               (State of Health calculations)
+├── bms_options_*.yaml                 (BMS configuration options)
+└── bms_temperature_sensor_*.yaml      (Temperature sensor configs)
+
+packages/shunt/ - Current Shunt Integrations
+-------------------------------------------
+├── shunt_combine_*.yaml               (Shunt-specific packages)
+│   ├── Victron_SmartShunt_*.yaml      (Victron SmartShunt via BLE/UART)
+│   ├── Junctek_KHF_UART.yaml          (Junctek KHF via UART)
+│   └── FAKE.yaml                      (Fake/simulation shunt)
+├── shunt_sensors_*.yaml               (Sensor definitions per shunt type)
+├── shunt_modbus_*.yaml                (Modbus interfaces)
+├── shunt_base*.yaml                   (Base shunt functionality)
+└── shunt_combine.yaml                 (Shunt data combination logic)
+
+CONFIGURATION FLOW
+==================
+
+1. Main Configuration Entry Point (e.g., pv-battery.yaml):
+   ├── Global substitutions (battery chemistry, cell count, voltages)
+   ├── Board selection (exactly one required)
+   ├── Interface options (UART, CAN, etc.)
+   ├── BMS integration (at least one required)
+   ├── Shunt integration (optional)
+   ├── YamBMS core logic
+   ├── Communication protocols (CAN/RS485 to inverter)
+   └── Debug/monitoring
+
+2. BMS Integration Chain:
+   bms_combine_[MODEL]_[INTERFACE]_[VARIANT].yaml
+   ├── → bms_sensors_[MODEL]_[VARIANT].yaml    (Sensor definitions)
+   ├── → bms_combine.yaml                      (Common combination logic)
+   ├── → bms_base.yaml                         (Base BMS functionality)
+   └── → bms_errors_bitmask_[MODEL].yaml       (Model-specific error handling)
+
+3. Shunt Integration Chain:
+   shunt_combine_[MODEL]_[INTERFACE].yaml
+   ├── → shunt_sensors_[MODEL]_[INTERFACE].yaml (Sensor definitions)
+   ├── → shunt_combine.yaml                     (Common combination logic)
+   └── → shunt_base.yaml                        (Base shunt functionality)
+
+4. YamBMS Core Processing:
+   yambms.yaml
+   ├── → yambms_combine.yaml                   (Merges BMS + shunt data)
+   ├── → yambms_service.yaml                   (Update/maintenance services)
+   ├── → yambms_auto_*.yaml                    (Automatic parameter adjustments)
+   └── → Communication modules (CAN/RS485 output to inverters)
+
+SUPPORTED HARDWARE
+==================
+
+Microcontrollers:
+├── ESP32 (various development boards)
+├── ESP32-C3 (DevKitM-1, ETH01-EVO, XIAO, FlipC3)
+├── ESP32-S3 (AtomS3, DevKitC-1, XIAO, LilyGo T-Connect, Touch LCD)
+└── RP2040 (Raspberry Pi Pico)
+
+BMS Types Supported:
+├── JK BMS (BLE, UART, RS485 Modbus)
+├── JBD/Xiaoxiang BMS (BLE, UART)
+├── SEPLOS BMS (V1, V2, V3 via RS485)
+├── DEYE CAN modules
+├── BASEN RS485 BMS
+├── EG4 LLV2 RS485 BMS
+└── Generic Modbus BMS
+
+Current Shunts Supported:
+├── Victron SmartShunt (BLE, UART)
+├── Junctek KHF (UART)
+└── Generic Modbus shunts
+
+Communication Interfaces:
+├── CAN bus (ESP32 built-in, MCP2515)
+├── RS485/Modbus (UART-based)
+├── Bluetooth Low Energy (BLE)
+├── WiFi
+└── Ethernet
+
+KEY FEATURES
+============
+- Multi-BMS support (mix different BMS types)
+- Automatic charge/discharge current limiting
+- Automatic charge voltage adjustment
+- Battery State of Health (SoH) calculation
+- Web server interface
+- Home Assistant integration
+- Modular package system for easy customization
+- Support for single-node and multi-node configurations
+- Inverter communication via CAN bus or RS485
+- Real-time battery monitoring and control
+
+CONFIGURATION REQUIREMENTS
+==========================
+- Exactly one board package must be selected
+- At least one BMS package must be included
+- Shunt packages are optional but recommended
+- YamBMS core package is required
+- Communication package (CAN/RS485) needed for inverter integration
+
+NAMING CONVENTIONS
+==================
+- Package files use snake_case naming
+- BMS packages: bms_combine_[MODEL]_[INTERFACE]_[VARIANT].yaml
+- Board packages: board_[MCU]_[BOARD_NAME].yaml
+- Shunt packages: shunt_combine_[MODEL]_[INTERFACE].yaml
+- Options packages: board_options_[FEATURE].yaml
+
+DEPENDENCIES
+============
+Each main configuration creates a dependency chain:
+Main Config → Board → Interfaces → BMS/Shunts → YamBMS Core → Communication
+
+The modular design allows for:
+- Easy hardware swapping (change board package)
+- Multiple BMS support (include multiple BMS packages)
+- Flexible communication (choose CAN or RS485)
+- Optional features (include only needed packages)
+
+This architecture enables YamBMS to be highly configurable while maintaining
+consistency across different hardware and BMS combinations.

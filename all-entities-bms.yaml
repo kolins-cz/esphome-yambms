@@ -1,0 +1,500 @@
+title: Uho
+views:
+  - path: default_view
+    title: Home
+    badges: null
+    cards:
+      - type: entities
+        entities:
+          - entity: switch.heater_bathroom
+          - entity: switch.heater_living_room_1
+          - entity: switch.heater_living_room_2
+          - entity: switch.heater_lab
+          - entity: switch.oc_output_5
+          - entity: switch.oc_output_6
+          - entity: switch.oc_output_7
+          - entity: switch.oc_output_8
+          - entity: switch.water_heater
+          - entity: switch.oc_output_10
+          - entity: sensor.auxiliary_power_meter
+          - entity: sensor.switching_cabinet_rssi
+          - entity: binary_sensor.cheap_electricity_tariff
+          - entity: binary_sensor.expensive_electricity_tariff
+        title: Switch
+      - type: entities
+        entities:
+          - entity: sensor.weather_station_temperature_bme280
+          - entity: sensor.weather_station_humidity_bme280
+          - entity: sensor.weather_station_pressure
+          - entity: sensor.weather_station_temperature_sht3x
+          - entity: sensor.weather_station_humidity_sht3x
+          - type: divider
+          - entity: sensor.weather_station_illuminance_max44009
+          - entity: sensor.weather_station_illuminance_tsl2561
+          - entity: sensor.weather_station_illuminance_tcs34725
+          - type: divider
+          - entity: sensor.weather_station_red_channel
+          - entity: sensor.weather_station_green_channel
+          - entity: sensor.weather_station_blue_channel
+          - entity: sensor.weather_station_clear_channel
+          - entity: sensor.weather_station_color_temperature
+        title: Weater Station
+      - type: entities
+        entities:
+          - entity: sensor.inepro_pro380_total_active_power
+          - type: divider
+          - entity: sensor.inepro_pro380_l1_active_power
+          - entity: sensor.inepro_pro380_l2_active_power
+          - entity: sensor.inepro_pro380_l3_active_power
+          - type: divider
+          - entity: sensor.inepro_pro380_l1_voltage
+          - entity: sensor.inepro_pro380_l2_voltage
+          - entity: sensor.inepro_pro380_l3_voltage
+          - type: divider
+          - entity: sensor.inepro_pro380_l1_current
+          - entity: sensor.inepro_pro380_l2_current
+          - entity: sensor.inepro_pro380_l3_current
+          - type: divider
+          - entity: sensor.inepro_pro380_total_active_energy
+          - entity: sensor.inepro_pro380_total_active_energy_tariff_1
+          - entity: sensor.inepro_pro380_total_active_energy_tariff_2
+        title: Electricity Meter
+      - type: entities
+        entities:
+          - entity: device_tracker.nokia_5_3
+          - entity: sensor.nokia_5_3_battery_health
+          - entity: sensor.nokia_5_3_charger_type
+          - entity: sensor.nokia_5_3_battery_temperature
+          - entity: sensor.nokia_5_3_battery_level
+          - entity: binary_sensor.nokia_5_3_is_charging
+      - type: entities
+        entities:
+          - entity: sensor.0xa4c138e2e010b1bd_humidity
+            name: Humidity
+          - entity: sensor.0xa4c138e2e010b1bd_temperature
+            name: Temperature
+        title: '0xa4c138e2e010b1bd'
+      - type: entities
+        entities:
+          - entity: sensor.0xa4c138ed1fc83d9f_humidity
+            name: Humidity
+          - entity: sensor.0xa4c138ed1fc83d9f_temperature
+            name: Temperature
+        title: '0xa4c138ed1fc83d9f'
+      - type: entities
+        entities:
+          - entity: sensor.0xa4c1383f6728941a_humidity
+            name: Humidity
+          - entity: sensor.0xa4c1383f6728941a_temperature
+            name: Temperature
+        title: '0xa4c1383f6728941a'
+  - title: bgvfg
+    path: bgvfg
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.pv_battery_bms_actual_battery_capacity
+            name: ' BMS actual battery capacity'
+          - entity: sensor.pv_battery_bms_average_cell_voltage
+            name: ' BMS average cell voltage'
+          - entity: sensor.pv_battery_bms_balance_opening_pressure_difference
+            name: ' BMS balance opening pressure difference'
+          - entity: sensor.pv_battery_bms_balance_starting_voltage
+            name: ' BMS balance starting voltage'
+          - entity: binary_sensor.pv_battery_bms_balancing
+            name: ' BMS balancing'
+          - entity: binary_sensor.pv_battery_bms_balancing_switch
+            name: ' BMS balancing switch'
+          - entity: sensor.pv_battery_bms_battery_soc
+            name: ' BMS Battery SoC'
+          - entity: sensor.pv_battery_bms_battery_soh
+            name: ' BMS Battery SoH'
+          - entity: sensor.pv_battery_bms_battery_strings
+            name: ' BMS battery strings'
+          - entity: binary_sensor.pv_battery_bms_can_be_combined
+            name: ' BMS Can be combined'
+          - entity: sensor.pv_battery_bms_capacity_remaining
+            name: ' BMS capacity remaining'
+          - entity: sensor.pv_battery_bms_cell_pressure_difference_protection
+            name: ' BMS cell pressure difference protection'
+          - entity: sensor.pv_battery_bms_cell_voltage_01
+            name: ' BMS cell voltage 01'
+          - entity: sensor.pv_battery_bms_cell_voltage_02
+            name: ' BMS cell voltage 02'
+          - entity: sensor.pv_battery_bms_cell_voltage_03
+            name: ' BMS cell voltage 03'
+          - entity: sensor.pv_battery_bms_cell_voltage_04
+            name: ' BMS cell voltage 04'
+          - entity: sensor.pv_battery_bms_cell_voltage_05
+            name: ' BMS cell voltage 05'
+          - entity: sensor.pv_battery_bms_cell_voltage_06
+            name: ' BMS cell voltage 06'
+          - entity: sensor.pv_battery_bms_cell_voltage_07
+            name: ' BMS cell voltage 07'
+          - entity: sensor.pv_battery_bms_cell_voltage_08
+            name: ' BMS cell voltage 08'
+          - entity: sensor.pv_battery_bms_cell_voltage_09
+            name: ' BMS cell voltage 09'
+          - entity: sensor.pv_battery_bms_cell_voltage_10
+            name: ' BMS cell voltage 10'
+          - entity: sensor.pv_battery_bms_cell_voltage_11
+            name: ' BMS cell voltage 11'
+          - entity: sensor.pv_battery_bms_cell_voltage_12
+            name: ' BMS cell voltage 12'
+          - entity: sensor.pv_battery_bms_cell_voltage_13
+            name: ' BMS cell voltage 13'
+          - entity: sensor.pv_battery_bms_cell_voltage_14
+            name: ' BMS cell voltage 14'
+          - entity: sensor.pv_battery_bms_cell_voltage_15
+            name: ' BMS cell voltage 15'
+          - entity: sensor.pv_battery_bms_cell_voltage_16
+            name: ' BMS cell voltage 16'
+          - entity: sensor.pv_battery_bms_cell_voltage_overvoltage_delay
+            name: ' BMS cell voltage overvoltage delay'
+          - entity: sensor.pv_battery_bms_cell_voltage_overvoltage_protection
+            name: ' BMS cell voltage overvoltage protection'
+          - entity: sensor.pv_battery_bms_cell_voltage_overvoltage_recovery
+            name: ' BMS cell voltage overvoltage recovery'
+          - entity: sensor.pv_battery_bms_cell_voltage_undervoltage_delay
+            name: ' BMS cell voltage undervoltage delay'
+          - entity: sensor.pv_battery_bms_cell_voltage_undervoltage_protection
+            name: ' BMS cell voltage undervoltage protection'
+          - entity: sensor.pv_battery_bms_cell_voltage_undervoltage_recovery
+            name: ' BMS cell voltage undervoltage recovery'
+          - entity: binary_sensor.pv_battery_bms_charging
+            name: ' BMS charging'
+          - entity: sensor.pv_battery_bms_charging_cycles
+            name: ' BMS charging cycles'
+          - entity: sensor.pv_battery_bms_charging_high_temperature_protection
+            name: ' BMS charging high temperature protection'
+          - entity: sensor.pv_battery_bms_charging_low_temperature_protection
+            name: ' BMS charging low temperature protection'
+          - entity: sensor.pv_battery_bms_charging_low_temperature_recovery
+            name: ' BMS charging low temperature recovery'
+          - entity: sensor.pv_battery_bms_charging_overcurrent_delay
+            name: ' BMS charging overcurrent delay'
+          - entity: sensor.pv_battery_bms_charging_overcurrent_protection
+            name: ' BMS charging overcurrent protection'
+          - entity: sensor.pv_battery_bms_charging_power
+            name: ' BMS charging power'
+          - entity: binary_sensor.pv_battery_bms_charging_switch
+            name: ' BMS charging switch'
+          - entity: sensor.pv_battery_bms_current
+            name: ' BMS current'
+          - entity: sensor.pv_battery_bms_current_calibration
+            name: ' BMS current calibration'
+          - entity: sensor.pv_battery_bms_daily_charging_energy
+            name: ' BMS Daily Charging Energy'
+          - entity: sensor.pv_battery_bms_daily_discharging_energy
+            name: ' BMS Daily Discharging Energy'
+          - entity: binary_sensor.pv_battery_bms_dedicated_charger_switch
+            name: ' BMS dedicated charger switch'
+          - entity: sensor.pv_battery_bms_delta_cell_voltage
+            name: ' BMS delta cell voltage'
+          - entity: binary_sensor.pv_battery_bms_discharging
+            name: ' BMS discharging'
+          - entity: sensor.pv_battery_bms_discharging_high_temperature_protection
+            name: ' BMS discharging high temperature protection'
+          - entity: sensor.pv_battery_bms_discharging_low_temperature_protection
+            name: ' BMS discharging low temperature protection'
+          - entity: sensor.pv_battery_bms_discharging_low_temperature_recovery
+            name: ' BMS discharging low temperature recovery'
+          - entity: sensor.pv_battery_bms_discharging_overcurrent_delay
+            name: ' BMS discharging overcurrent delay'
+          - entity: sensor.pv_battery_bms_discharging_overcurrent_protection
+            name: ' BMS discharging overcurrent protection'
+          - entity: sensor.pv_battery_bms_discharging_power
+            name: ' BMS discharging power'
+          - entity: binary_sensor.pv_battery_bms_discharging_switch
+            name: ' BMS discharging switch'
+          - entity: sensor.pv_battery_bms_max_cell_voltage
+            name: ' BMS max cell voltage'
+          - entity: sensor.pv_battery_bms_max_temperature
+            name: ' BMS max temperature'
+          - entity: sensor.pv_battery_bms_max_temperature_sensor
+            name: ' BMS max temperature sensor'
+          - entity: sensor.pv_battery_bms_max_voltage_cell
+            name: ' BMS max voltage cell'
+          - entity: sensor.pv_battery_bms_min_cell_voltage
+            name: ' BMS min cell voltage'
+          - entity: sensor.pv_battery_bms_min_temperature
+            name: ' BMS min temperature'
+          - entity: sensor.pv_battery_bms_min_temperature_sensor
+            name: ' BMS min temperature sensor'
+          - entity: sensor.pv_battery_bms_min_voltage_cell
+            name: ' BMS min voltage cell'
+          - entity: binary_sensor.pv_battery_bms_online_status
+            name: ' BMS online status'
+          - entity: sensor.pv_battery_bms_power
+            name: ' BMS power'
+          - entity: sensor.pv_battery_bms_power_tube_temperature
+            name: ' BMS power tube temperature'
+          - entity: sensor.pv_battery_bms_power_tube_temperature_protection
+            name: ' BMS power tube temperature protection'
+          - entity: sensor.pv_battery_bms_power_tube_temperature_recovery
+            name: ' BMS power tube temperature recovery'
+          - entity: sensor.pv_battery_bms_state_of_charge
+            name: ' BMS state of charge'
+          - entity: sensor.pv_battery_bms_temperature_sensor_1
+            name: ' BMS temperature sensor 1'
+          - entity: sensor.pv_battery_bms_temperature_sensor_2
+            name: ' BMS temperature sensor 2'
+          - entity: >-
+              sensor.pv_battery_bms_temperature_sensor_temperature_difference_protection
+            name: ' BMS temperature sensor temperature difference protection'
+          - entity: sensor.pv_battery_bms_temperature_sensor_temperature_protection
+            name: ' BMS temperature sensor temperature protection'
+          - entity: sensor.pv_battery_bms_temperature_sensor_temperature_recovery
+            name: ' BMS temperature sensor temperature recovery'
+          - entity: sensor.pv_battery_bms_total_battery_capacity_setting
+            name: ' BMS total battery capacity setting'
+          - entity: sensor.pv_battery_bms_total_charging_cycle_capacity
+            name: ' BMS total charging cycle capacity'
+          - entity: sensor.pv_battery_bms_total_voltage
+            name: ' BMS total voltage'
+          - entity: sensor.pv_battery_bms_total_voltage_overvoltage_protection
+            name: ' BMS total voltage overvoltage protection'
+          - entity: sensor.pv_battery_bms_total_voltage_undervoltage_protection
+            name: ' BMS total voltage undervoltage protection'
+          - entity: sensor.pv_battery_bms_yambms_errors_bitmask
+            name: ' BMS YamBMS Errors Bitmask'
+          - entity: sensor.pv_battery_yambms_1_auto_float_voltage
+            name: ' YamBMS 1 Auto Float Voltage'
+          - entity: sensor.pv_battery_yambms_1_balance_trigger_voltage_max
+            name: ' YamBMS 1 Balance Trigger Voltage (MAX)'
+          - entity: sensor.pv_battery_yambms_1_battery_capacity
+            name: ' YamBMS 1 Battery Capacity'
+          - entity: sensor.pv_battery_yambms_1_battery_charging_power
+            name: ' YamBMS 1 Battery Charging Power'
+          - entity: sensor.pv_battery_yambms_1_battery_discharging_power
+            name: ' YamBMS 1 Battery Discharging Power'
+          - entity: sensor.pv_battery_yambms_1_battery_soc
+            name: ' YamBMS 1 Battery SoC'
+          - entity: sensor.pv_battery_yambms_1_battery_soh
+            name: ' YamBMS 1 Battery SoH'
+          - entity: sensor.pv_battery_yambms_1_bms_blocking_charge
+            name: ' YamBMS 1 BMS blocking charge'
+          - entity: sensor.pv_battery_yambms_1_bms_blocking_discharge
+            name: ' YamBMS 1 BMS blocking discharge'
+          - entity: binary_sensor.pv_battery_yambms_1_bms_charging_allowed
+            name: ' YamBMS 1 BMS charging allowed'
+          - entity: sensor.pv_battery_yambms_1_bms_combined
+            name: ' YamBMS 1 BMS combined'
+          - entity: sensor.pv_battery_yambms_1_bms_count
+            name: ' YamBMS 1 BMS count'
+          - entity: binary_sensor.pv_battery_yambms_1_bms_discharging_allowed
+            name: ' YamBMS 1 BMS discharging allowed'
+          - entity: binary_sensor.pv_battery_yambms_1_bms_equalizing_state
+            name: ' YamBMS 1 BMS equalizing state'
+          - entity: sensor.pv_battery_yambms_1_bms_in_alarm
+            name: ' YamBMS 1 BMS in alarm'
+          - entity: sensor.pv_battery_yambms_1_capacity_remaining
+            name: ' YamBMS 1 Capacity Remaining'
+          - entity: sensor.pv_battery_yambms_1_cell_count
+            name: ' YamBMS 1 Cell Count'
+          - entity: sensor.pv_battery_yambms_1_cell_ovp_min
+            name: ' YamBMS 1 Cell OVP (MIN)'
+          - entity: sensor.pv_battery_yambms_1_cell_uvp_max
+            name: ' YamBMS 1 Cell UVP (MAX)'
+          - entity: sensor.pv_battery_yambms_1_charging_cycles
+            name: ' YamBMS 1 Charging Cycles'
+          - entity: sensor.pv_battery_yambms_1_charging_instruction
+            name: ' YamBMS 1 Charging Instruction'
+          - entity: sensor.pv_battery_yambms_1_charging_status
+            name: ' YamBMS 1 Charging Status'
+          - entity: sensor.pv_battery_yambms_1_current
+            name: ' YamBMS 1 Current'
+          - entity: sensor.pv_battery_yambms_1_daily_charging_energy
+            name: ' YamBMS 1 Daily Charging Energy'
+          - entity: sensor.pv_battery_yambms_1_daily_discharging_energy
+            name: ' YamBMS 1 Daily Discharging Energy'
+          - entity: sensor.pv_battery_yambms_1_delta_cell_voltage
+            name: ' YamBMS 1 Delta Cell Voltage'
+          - entity: binary_sensor.pv_battery_yambms_1_discharging_instruction
+            name: ' YamBMS 1 Discharging Instruction'
+          - entity: sensor.pv_battery_yambms_1_errors_bitmask_alarm
+            name: ' YamBMS 1 Errors Bitmask Alarm'
+          - entity: sensor.pv_battery_yambms_1_errors_bitmask_warning
+            name: ' YamBMS 1 Errors Bitmask Warning'
+          - entity: sensor.pv_battery_yambms_1_installed_battery_capacity
+            name: ' YamBMS 1 Installed Battery Capacity'
+          - entity: sensor.pv_battery_yambms_1_max_cell_voltage
+            name: ' YamBMS 1 Max Cell Voltage'
+          - entity: sensor.pv_battery_yambms_1_max_charge_current
+            name: ' YamBMS 1 Max Charge current'
+          - entity: sensor.pv_battery_yambms_1_max_discharge_current
+            name: ' YamBMS 1 Max Discharge Current'
+          - entity: sensor.pv_battery_yambms_1_max_temperature
+            name: ' YamBMS 1 Max temperature'
+          - entity: sensor.pv_battery_yambms_1_max_temperature_sensor
+            name: ' YamBMS 1 Max temperature sensor'
+          - entity: sensor.pv_battery_yambms_1_max_voltage_cell
+            name: ' YamBMS 1 Max Voltage Cell'
+          - entity: sensor.pv_battery_yambms_1_min_cell_voltage
+            name: ' YamBMS 1 Min Cell Voltage'
+          - entity: sensor.pv_battery_yambms_1_min_temperature
+            name: ' YamBMS 1 Min temperature'
+          - entity: sensor.pv_battery_yambms_1_min_temperature_sensor
+            name: ' YamBMS 1 Min temperature sensor'
+          - entity: sensor.pv_battery_yambms_1_min_voltage_cell
+            name: ' YamBMS 1 Min Voltage Cell'
+          - entity: sensor.pv_battery_yambms_1_power
+            name: ' YamBMS 1 Power'
+          - entity: sensor.pv_battery_yambms_1_requested_charge_current
+            name: ' YamBMS 1 Requested Charge Current'
+          - entity: sensor.pv_battery_yambms_1_requested_charge_voltage
+            name: ' YamBMS 1 Requested Charge Voltage'
+          - entity: sensor.pv_battery_yambms_1_requested_discharge_current
+            name: ' YamBMS 1 Requested Discharge Current'
+          - entity: sensor.pv_battery_yambms_1_requested_discharge_voltage
+            name: ' YamBMS 1 Requested Discharge Voltage'
+          - entity: binary_sensor.pv_battery_yambms_1_requested_force_charge
+            name: ' YamBMS 1 Requested Force Charge'
+          - entity: sensor.pv_battery_yambms_1_shunt_combined
+            name: ' YamBMS 1 Shunt combined'
+          - entity: sensor.pv_battery_yambms_1_shunt_count
+            name: ' YamBMS 1 Shunt count'
+          - entity: sensor.pv_battery_yambms_1_total_voltage
+            name: ' YamBMS 1 Total Voltage'
+        title: PV Battery
+      - type: entities
+        entities:
+          - entity: number.pv_battery_bms_charging_cycles_offset
+            name: ' BMS Charging Cycles Offset'
+          - entity: select.pv_battery_canbus_1_bms_name
+            name: ' CANBUS 1 BMS Name'
+          - entity: select.pv_battery_canbus_1_protocol
+            name: ' CANBUS 1 Protocol'
+          - entity: button.pv_battery_esp32_factory_reset
+            name: ' ESP32 Factory Reset'
+          - entity: button.pv_battery_esp32_restart
+            name: ' ESP32 Restart'
+          - entity: number.pv_battery_yambms_1_auto_cvl_boost_charge_v
+            name: ' YamBMS 1 Auto CVL Boost Charge V.'
+          - entity: number.pv_battery_yambms_1_auto_float_update_interval
+            name: ' YamBMS 1 Auto Float Update Interval'
+          - entity: number.pv_battery_yambms_1_auto_float_voltage_step
+            name: ' YamBMS 1 Auto Float Voltage Step'
+          - entity: switch.pv_battery_yambms_1_automatic_charge_current
+            name: ' YamBMS 1 Automatic Charge Current'
+          - entity: switch.pv_battery_yambms_1_automatic_charge_voltage
+            name: ' YamBMS 1 Automatic Charge Voltage'
+          - entity: switch.pv_battery_yambms_1_automatic_discharge_current
+            name: ' YamBMS 1 Automatic Discharge Current'
+          - entity: select.pv_battery_yambms_1_automatic_float_voltage
+            name: ' YamBMS 1 Automatic Float Voltage'
+          - entity: number.pv_battery_yambms_1_bulk_voltage
+            name: ' YamBMS 1 Bulk voltage'
+          - entity: switch.pv_battery_yambms_1_charge_enabled
+            name: ' YamBMS 1 Charge enabled'
+          - entity: switch.pv_battery_yambms_1_discharge_enabled
+            name: ' YamBMS 1 Discharge enabled'
+          - entity: switch.pv_battery_yambms_1_eoc_timer_enabled
+            name: ' YamBMS 1 EOC Timer enabled'
+          - entity: switch.pv_battery_yambms_1_float_charge_enabled
+            name: ' YamBMS 1 Float charge enabled'
+          - entity: number.pv_battery_yambms_1_float_voltage
+            name: ' YamBMS 1 Float voltage'
+          - entity: switch.pv_battery_yambms_1_force_bulk_top_bal
+            name: ' YamBMS 1 Force Bulk (top bal)'
+          - entity: number.pv_battery_yambms_1_inverter_offset_v
+            name: ' YamBMS 1 Inverter Offset V.'
+          - entity: number.pv_battery_yambms_1_max_charge_current_percent
+            name: ' YamBMS 1 Max charge current percent'
+          - entity: number.pv_battery_yambms_1_max_discharge_current_percent
+            name: ' YamBMS 1 Max discharge current percent'
+          - entity: number.pv_battery_yambms_1_rebulk_soc
+            name: ' YamBMS 1 Rebulk SoC'
+          - entity: number.pv_battery_yambms_1_rebulk_v
+            name: ' YamBMS 1 Rebulk V.'
+          - entity: switch.pv_battery_yambms_1_request_force_charge
+            name: ' YamBMS 1 Request force charge'
+          - entity: number.pv_battery_yambms_1_request_force_charge_start_soc
+            name: ' YamBMS 1 Request Force Charge Start SoC'
+          - entity: number.pv_battery_yambms_1_request_force_charge_stop_soc
+            name: ' YamBMS 1 Request Force Charge Stop SoC'
+        title: PV Battery
+      - type: entities
+        entities:
+          - entity: switch.pv_battery_canbus_1_inverter_heartbeat_monitoring
+            name: ' CANBUS 1 Inverter Heartbeat Monitoring'
+          - entity: sensor.pv_battery_bms_battery_type
+            name: ' BMS battery type'
+          - entity: sensor.pv_battery_bms_device_address
+            name: ' BMS device address'
+          - entity: sensor.pv_battery_bms_device_type
+            name: ' BMS device type'
+          - entity: sensor.pv_battery_bms_errors
+            name: ' BMS errors'
+          - entity: sensor.pv_battery_bms_errors_bitmask
+            name: ' BMS errors bitmask'
+          - entity: sensor.pv_battery_bms_manufacturer
+            name: ' BMS manufacturer'
+          - entity: sensor.pv_battery_bms_operation_mode
+            name: ' BMS operation mode'
+          - entity: sensor.pv_battery_bms_operation_mode_bitmask
+            name: ' BMS operation mode bitmask'
+          - entity: sensor.pv_battery_bms_software_version
+            name: ' BMS software version'
+          - entity: sensor.pv_battery_bms_temperature_sensors
+            name: ' BMS temperature sensors'
+          - entity: sensor.pv_battery_bms_total_runtime
+            name: ' BMS total runtime'
+          - entity: sensor.pv_battery_bms_total_runtime_formatted
+            name: ' BMS total runtime formatted'
+          - entity: sensor.pv_battery_canbus_1_inverter_heartbeat
+            name: ' CANBUS 1 Inverter Heartbeat'
+          - entity: binary_sensor.pv_battery_canbus_1_status
+            name: ' CANBUS 1 Status'
+          - entity: sensor.pv_battery_debug_device_info
+            name: ' Debug Device info'
+          - entity: sensor.pv_battery_debug_heap_free
+            name: ' Debug Heap free'
+          - entity: sensor.pv_battery_debug_heap_free_percent
+            name: ' Debug Heap free percent'
+          - entity: sensor.pv_battery_debug_heap_max_block
+            name: ' Debug Heap max block'
+          - entity: sensor.pv_battery_debug_heap_max_block_percent
+            name: ' Debug Heap max block percent'
+          - entity: sensor.pv_battery_debug_loop_time
+            name: ' Debug Loop time'
+          - entity: sensor.pv_battery_debug_reset_reason
+            name: ' Debug Reset reason'
+          - entity: sensor.pv_battery_esp32_connected_bssid
+            name: ' ESP32 connected BSSID'
+          - entity: sensor.pv_battery_esp32_connected_ssid
+            name: ' ESP32 connected SSID'
+          - entity: sensor.pv_battery_esp32_dns_address
+            name: ' ESP32 DNS address'
+          - entity: sensor.pv_battery_esp32_esphome_version
+            name: ' ESP32 ESPHome version'
+          - entity: sensor.pv_battery_esp32_internal_temperature
+            name: ' ESP32 internal temperature'
+          - entity: sensor.pv_battery_esp32_ip_address
+            name: ' ESP32 IP address'
+          - entity: sensor.pv_battery_esp32_latest_scan_results
+            name: ' ESP32 latest scan results'
+          - entity: sensor.pv_battery_esp32_mac_address
+            name: ' ESP32 MAC address'
+          - entity: binary_sensor.pv_battery_esp32_online_status
+            name: ' ESP32 Online Status'
+          - entity: sensor.pv_battery_esp32_uptime
+            name: ' ESP32 Uptime'
+          - entity: sensor.pv_battery_esp32_wifi_power
+            name: ' ESP32 WiFi power'
+          - entity: sensor.pv_battery_esp32_wifi_power_2
+            name: ' ESP32 WiFi power (%)'
+          - entity: binary_sensor.pv_battery_inverter_communication_status
+            name: ' Inverter communication status'
+          - entity: sensor.pv_battery_yambms_1_alarm
+            name: ' YamBMS 1 Alarm'
+          - entity: sensor.pv_battery_yambms_1_last_complete_charge
+            name: ' YamBMS 1 Last Complete Charge'
+          - entity: sensor.pv_battery_yambms_1_last_version
+            name: ' YamBMS 1 Last version'
+          - entity: sensor.pv_battery_yambms_1_running_version
+            name: ' YamBMS 1 Running version'
+          - entity: sensor.pv_battery_yambms_1_warning
+            name: ' YamBMS 1 Warning'
+        title: PV Battery

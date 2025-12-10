@@ -1,0 +1,603 @@
+views:
+  - title: Overview
+    path: overview
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.abb_pvi_grid_power
+          - entity: sensor.pv_comm_epever_charging_power
+          - entity: sensor.pv_battery_bms_power
+          - entity: sensor.pv_battery_bms_battery_soc
+          - entity: sensor.pv_battery_bms_total_voltage
+          - entity: sensor.pv_battery_bms_current
+          - entity: sensor.pv_battery_bms_average_cell_voltage
+          - entity: sensor.pv_battery_bms_delta_cell_voltage
+          - entity: sensor.studer_ac_output_frequency
+          - entity: sensor.abb_pvi_grid_frequency
+          - type: divider
+          - entity: sensor.studer_1_output_active_power
+          - entity: sensor.studer_2_output_active_power
+          - entity: sensor.studer_3_output_active_power
+          - entity: sensor.studer_4_output_active_power
+        title: System Overview
+    icon: ''
+  - title: Solar Sources
+    path: solar-sources
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.abb_pvi_global_state
+          - entity: sensor.abb_pvi_inverter_state
+          - entity: sensor.abb_mppt1_state
+          - entity: sensor.abb_mppt2_state
+          - entity: sensor.abb_alarm_state
+          - type: divider
+          - entity: sensor.abb_pvi_total_energy
+          - type: divider
+          - entity: sensor.abb_pvi_grid_power
+          - entity: sensor.abb_pvi_grid_voltage
+          - entity: sensor.abb_pvi_grid_current
+          - entity: sensor.abb_pvi_grid_frequency
+          - type: divider
+          - entity: sensor.abb_pvi_mppt1_power
+          - entity: sensor.abb_pvi_mppt1_voltage
+          - entity: sensor.abb_pvi_mppt1_current
+          - type: divider
+          - entity: sensor.abb_pvi_mppt2_power
+          - entity: sensor.abb_pvi_mppt2_voltage
+          - entity: sensor.abb_pvi_mppt2_current
+          - type: divider
+          - entity: sensor.abb_pvi_booster_temperature
+          - entity: sensor.abb_pvi_inverter_temperature
+          - type: divider
+          - entity: sensor.abb_pvi_efficiency
+        title: ABB   PVI 12.5
+      - type: entities
+        entities:
+          - entity: sensor.pv_comm_epever_pv_array_input_power
+            name: PV array input power
+          - entity: sensor.pv_comm_epever_pv_array_input_voltage
+            name: PV array input voltage
+          - entity: sensor.pv_comm_epever_pv_array_input_current
+            name: PV array input current
+          - type: divider
+          - entity: sensor.pv_comm_epever_charging_power
+            name: Charging power
+          - entity: sensor.pv_comm_epever_charging_voltage
+            name: Charging voltage
+          - entity: sensor.pv_comm_epever_charging_current
+            name: Charging current
+          - type: divider
+          - entity: sensor.pv_comm_epever_load_power
+            name: Load power
+          - entity: sensor.pv_comm_epever_load_voltage
+            name: Load voltage
+          - entity: sensor.pv_comm_epever_load_current
+            name: Load Current
+          - type: divider
+          - entity: sensor.pv_comm_epever_device_temperature
+            name: Device temperature
+          - entity: sensor.pv_comm_epever_battery_temperature
+            name: Battery temperature
+          - entity: binary_sensor.pv_comm_epever_charging_input_volt_failure
+            name: Charging Input Volt Failure
+          - type: divider
+          - entity: sensor.pv_comm_epever_generated_energy_today
+            name: Generated energy today
+        title: Epsolar MPPT
+      - type: entities
+        entities:
+          - entity: sensor.energy_next_hour
+            name: Estimated energy production - next hour
+          - entity: sensor.energy_production_today_remaining
+            name: Estimated energy production - remaining today
+          - entity: sensor.energy_current_hour
+            name: Estimated energy production - this hour
+          - entity: sensor.energy_production_today
+            name: Estimated energy production - today
+          - entity: sensor.energy_production_tomorrow
+            name: Estimated energy production - tomorrow
+          - entity: sensor.power_production_now
+            name: Estimated power production - now
+          - entity: sensor.power_highest_peak_time_today
+            name: Highest power peak time - today
+          - entity: sensor.power_highest_peak_time_tomorrow
+            name: Highest power peak time - tomorrow
+        title: Solar production forecast
+  - title: PV Ctrl
+    path: pv-ctrl
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: switch.pv_ctrl1_pv_control_r1_abb_on_off
+            name: PV Control R1 ABB on/off
+          - entity: switch.pv_ctrl1_pv_control_r2_studer_on_off
+            name: PV Control R2 Studer on/off
+          - entity: switch.pv_ctrl1_pv_control_r3
+            name: PV Control R3
+          - entity: switch.pv_ctrl1_pv_control_r4
+            name: PV Control R4
+          - entity: switch.pv_ctrl1_pv_control_r5_raspberry_power_disconnect
+            name: PV Control R5 Raspberry Power Disconnect
+          - entity: switch.pv_ctrl1_pv_control_r6_fan
+            name: PV Control R6 Fan
+          - entity: switch.pv_ctrl1_pv_optocoupler_1
+            name: PV Optocoupler 1
+          - entity: switch.pv_ctrl1_pv_optocoupler_2
+            name: PV Optocoupler 2
+          - entity: switch.pv_ctrl1_pv_optocoupler_3
+            name: PV Optocoupler 3
+          - entity: switch.pv_ctrl1_pv_optocoupler_4
+            name: PV Optocoupler 4
+        title: PV Control
+        show_header_toggle: false
+      - type: entities
+        entities:
+          - entity: sensor.pv_ctrl1_pv_control_cabinet_temperature
+            name: PV Control cabinet Temperature
+          - entity: binary_sensor.pv_ctrl1_pv_control_i1_studer_aux1
+            name: PV Control I1 Studer AUX1
+          - entity: binary_sensor.pv_ctrl1_pv_control_i2_studer_aux2
+            name: PV Control I2 Studer AUX2
+          - entity: binary_sensor.pv_ctrl1_pv_control_i3
+            name: PV Control I3
+          - entity: binary_sensor.pv_ctrl1_pv_control_i4_abb_alarm
+            name: PV Control I4  ABB alarm
+        title: PV Control
+  - title: Solar BMS JK
+    path: solar-bms-jk
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.pv_battery_bms_total_voltage
+            name: BMS total voltage
+          - entity: sensor.pv_battery_bms_average_cell_voltage
+            name: BMS average cell voltage
+          - entity: sensor.pv_battery_bms_delta_cell_voltage
+            name: BMS delta cell voltage
+          - entity: sensor.pv_battery_bms_current
+            name: BMS current
+          - type: divider
+          - entity: sensor.pv_battery_bms_charging_power
+            name: BMS charging power
+          - entity: sensor.pv_battery_bms_discharging_power
+            name: BMS discharging power
+          - entity: sensor.pv_battery_bms_power
+            name: BMS power
+          - type: divider
+          - entity: sensor.pv_battery_bms_capacity_remaining
+            name: BMS capacity remaining
+          - entity: sensor.pv_battery_bms_total_charging_cycle_capacity
+            name: BMS total charging cycle capacity
+          - entity: sensor.pv_battery_bms_daily_charging_energy
+            name: BMS Daily Charging Energy
+          - entity: sensor.pv_battery_bms_daily_discharging_energy
+            name: BMS Daily Discharging Energy
+          - type: divider
+          - entity: sensor.pv_battery_bms_temperature_sensor_1
+            name: BMS temperature sensor 1
+          - entity: sensor.pv_battery_bms_temperature_sensor_2
+            name: BMS temperature sensor 2
+          - entity: sensor.pv_battery_bms_power_tube_temperature
+            name: BMS power tube temperature
+          - type: divider
+          - entity: sensor.pv_battery_yambms_1_requested_charge_voltage
+            name: YamBMS Requested Charge Voltage
+          - entity: sensor.pv_battery_yambms_1_requested_charge_current
+            name: YamBMS Requested Charge Current
+          - entity: sensor.pv_battery_yambms_1_requested_discharge_current
+            name: YamBMS Requested Discharge Current
+          - type: divider
+          - entity: binary_sensor.pv_battery_bms_charging
+            name: BMS charging
+          - entity: sensor.pv_battery_yambms_1_charging_status
+            name: YamBMS Charging Status
+          - entity: binary_sensor.pv_battery_bms_charging_switch
+            name: BMS charging switch
+          - entity: binary_sensor.pv_battery_bms_discharging
+            name: BMS discharging
+          - entity: binary_sensor.pv_battery_bms_discharging_switch
+            name: BMS discharging switch
+          - type: divider
+          - entity: sensor.pv_battery_bms_actual_battery_capacity
+            name: BMS actual battery capacity
+          - entity: sensor.pv_battery_bms_total_battery_capacity_setting
+            name: BMS total battery capacity setting
+          - entity: sensor.pv_battery_bms_battery_soc
+            name: BMS Battery SoC
+          - entity: sensor.pv_battery_bms_battery_soh
+            name: BMS Battery SoH
+          - type: divider
+          - entity: binary_sensor.pv_battery_bms_dedicated_charger_switch
+            name: BMS dedicated charger switch
+        title: PV Battery
+      - type: entities
+        entities:
+          - entity: switch.pv_battery_yambms_1_charge_enabled
+            name: YamBMS Charge enabled
+          - entity: switch.pv_battery_yambms_1_discharge_enabled
+            name: YamBMS Discharge enabled
+          - entity: switch.pv_battery_yambms_1_float_charge_enabled
+            name: YamBMS Float charge enabled
+          - entity: switch.pv_battery_yambms_1_force_bulk_top_bal
+            name: YamBMS Force Bulk (top bal)
+          - entity: switch.pv_battery_yambms_1_request_force_charge
+            name: YamBMS Request force charge
+        title: PV Battery - Switches
+      - type: entities
+        entities:
+          - entity: number.pv_battery_yambms_1_bulk_voltage
+            name: YamBMS Bulk voltage
+          - entity: number.pv_battery_yambms_1_float_voltage
+            name: YamBMS Float voltage
+          - entity: number.pv_battery_yambms_1_rebulk_v
+            name: YamBMS Rebulk V.
+          - entity: switch.pv_battery_yambms_1_automatic_charge_current
+            name: YamBMS Automatic Charge Current
+          - entity: switch.pv_battery_yambms_1_automatic_charge_voltage
+            name: YamBMS Automatic Charge Voltage
+          - entity: switch.pv_battery_yambms_1_automatic_discharge_current
+            name: YamBMS Automatic Discharge Current
+          - entity: number.pv_battery_yambms_1_max_charge_current_percent
+            name: YamBMS Max charge current percent
+          - entity: number.pv_battery_yambms_1_max_discharge_current_percent
+            name: YamBMS Max discharge current percent
+          - entity: select.pv_battery_canbus_1_bms_name
+            name: CANBUS BMS Name
+          - entity: select.pv_battery_canbus_1_protocol
+            name: CANBUS Protocol
+          - entity: button.pv_battery_esp32_restart
+            name: ESP32 Restart
+        title: PV Battery - Controls
+      - type: entities
+        entities:
+          - entity: sensor.pv_battery_bms_battery_type
+            name: BMS battery type
+          - entity: sensor.pv_battery_bms_battery_strings
+            name: BMS battery strings
+          - entity: sensor.pv_battery_bms_current_calibration
+            name: BMS current calibration
+          - entity: binary_sensor.pv_battery_canbus_1_status
+            name: CANBUS Status
+          - entity: sensor.pv_battery_bms_device_address
+            name: BMS device address
+          - entity: sensor.pv_battery_bms_device_type
+            name: BMS device type
+          - entity: sensor.pv_battery_bms_errors
+            name: BMS errors
+          - entity: sensor.pv_battery_bms_errors_bitmask
+            name: BMS errors bitmask
+          - entity: sensor.pv_battery_yambms_1_last_complete_charge
+            name: YamBMS Last Complete Charge
+          - entity: sensor.pv_battery_bms_manufacturer
+            name: BMS manufacturer
+          - entity: sensor.pv_battery_bms_operation_mode
+            name: BMS operation mode
+          - entity: sensor.pv_battery_bms_operation_mode_bitmask
+            name: BMS operation mode bitmask
+          - entity: sensor.pv_battery_bms_software_version
+            name: BMS software version
+          - entity: sensor.pv_battery_bms_temperature_sensors
+            name: BMS temperature sensors
+          - entity: sensor.pv_battery_bms_total_runtime
+            name: BMS total runtime
+          - entity: sensor.pv_battery_bms_total_runtime_formatted
+            name: BMS total runtime formatted
+          - entity: sensor.pv_battery_bms_charging_cycles
+            name: BMS charging cycles
+          - entity: sensor.pv_battery_esp32_uptime
+            name: ESP32 Uptime
+        title: PV Battery - Info
+      - type: entities
+        entities:
+          - entity: sensor.pv_battery_bms_cell_voltage_1
+          - entity: sensor.pv_battery_bms_cell_voltage_2
+          - entity: sensor.pv_battery_bms_cell_voltage_3
+          - entity: sensor.pv_battery_bms_cell_voltage_4
+          - entity: sensor.pv_battery_bms_cell_voltage_5
+          - entity: sensor.pv_battery_bms_cell_voltage_6
+          - entity: sensor.pv_battery_bms_cell_voltage_7
+          - entity: sensor.pv_battery_bms_cell_voltage_8
+          - entity: sensor.pv_battery_bms_cell_voltage_9
+          - entity: sensor.pv_battery_bms_cell_voltage_10
+          - entity: sensor.pv_battery_bms_cell_voltage_11
+          - entity: sensor.pv_battery_bms_cell_voltage_12
+          - entity: sensor.pv_battery_bms_cell_voltage_13
+          - entity: sensor.pv_battery_bms_cell_voltage_14
+          - entity: sensor.pv_battery_bms_cell_voltage_15
+          - entity: sensor.pv_battery_bms_cell_voltage_16
+          - entity: sensor.pv_battery_bms_cell_voltage_17
+          - entity: sensor.pv_battery_bms_cell_voltage_18
+          - type: divider
+          - entity: sensor.pv_battery_bms_max_cell_voltage
+            name: BMS max cell voltage
+          - entity: sensor.pv_battery_bms_max_voltage_cell
+            name: BMS max voltage cell
+          - entity: sensor.pv_battery_bms_min_cell_voltage
+            name: BMS min cell voltage
+          - entity: sensor.pv_battery_bms_min_voltage_cell
+            name: BMS min voltage cell
+          - type: divider
+          - entity: sensor.pv_battery_bms_balance_opening_pressure_difference
+            name: BMS balance opening pressure difference
+          - entity: sensor.pv_battery_bms_balance_starting_voltage
+            name: BMS balance starting voltage
+          - entity: binary_sensor.pv_battery_bms_balancing
+            name: BMS balancing
+          - entity: binary_sensor.pv_battery_bms_balancing_switch
+            name: BMS balancing switch
+        title: BMS Cell Voltages
+      - type: entities
+        entities:
+          - entity: sensor.pv_battery_bms_cell_pressure_difference_protection
+            name: BMS cell pressure difference protection
+          - entity: sensor.pv_battery_bms_cell_voltage_overvoltage_delay
+            name: BMS cell voltage overvoltage delay
+          - entity: sensor.pv_battery_bms_cell_voltage_overvoltage_protection
+            name: BMS cell voltage overvoltage protection
+          - entity: sensor.pv_battery_bms_cell_voltage_overvoltage_recovery
+            name: BMS cell voltage overvoltage recovery
+          - entity: sensor.pv_battery_bms_cell_voltage_undervoltage_delay
+            name: BMS cell voltage undervoltage delay
+          - entity: sensor.pv_battery_bms_cell_voltage_undervoltage_protection
+            name: BMS cell voltage undervoltage protection
+          - entity: sensor.pv_battery_bms_cell_voltage_undervoltage_recovery
+            name: BMS cell voltage undervoltage recovery
+          - entity: sensor.pv_battery_bms_charging_high_temperature_protection
+            name: BMS charging high temperature protection
+          - entity: sensor.pv_battery_bms_charging_low_temperature_protection
+            name: BMS charging low temperature protection
+          - entity: sensor.pv_battery_bms_charging_low_temperature_recovery
+            name: BMS charging low temperature recovery
+          - entity: sensor.pv_battery_bms_charging_overcurrent_delay
+            name: BMS charging overcurrent delay
+          - entity: sensor.pv_battery_bms_charging_overcurrent_protection
+            name: BMS charging overcurrent protection
+          - entity: sensor.pv_battery_bms_discharging_high_temperature_protection
+            name: BMS discharging high temperature protection
+          - entity: sensor.pv_battery_bms_discharging_low_temperature_protection
+            name: BMS discharging low temperature protection
+          - entity: sensor.pv_battery_bms_discharging_low_temperature_recovery
+            name: BMS discharging low temperature recovery
+          - entity: sensor.pv_battery_bms_discharging_overcurrent_delay
+            name: BMS discharging overcurrent delay
+          - entity: sensor.pv_battery_bms_discharging_overcurrent_protection
+            name: BMS discharging overcurrent protection
+          - entity: sensor.pv_battery_bms_power_tube_temperature_protection
+            name: BMS power tube temperature protection
+          - entity: sensor.pv_battery_bms_power_tube_temperature_recovery
+            name: BMS power tube temperature recovery
+          - entity: >-
+              sensor.pv_battery_bms_temperature_sensor_temperature_difference_protection
+            name: BMS temperature sensor temperature difference protection
+          - entity: sensor.pv_battery_bms_temperature_sensor_temperature_protection
+            name: BMS temperature sensor temperature protection
+          - entity: sensor.pv_battery_bms_temperature_sensor_temperature_recovery
+            name: BMS temperature sensor temperature recovery
+          - entity: sensor.pv_battery_bms_total_voltage_overvoltage_protection
+            name: BMS total voltage overvoltage protection
+          - entity: sensor.pv_battery_bms_total_voltage_undervoltage_protection
+            name: BMS total voltage undervoltage protection
+        title: BMS Protection settings
+  - title: YamBMS Status
+    path: yambms-status
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: binary_sensor.pv_battery_esp32_online_status
+            name: ESP32 Online Status
+          - entity: sensor.pv_battery_yambms_1_bms_count
+            name: YamBMS BMS count
+          - entity: sensor.pv_battery_yambms_1_bms_combined
+            name: YamBMS BMS combined
+          - type: divider
+          - entity: sensor.pv_battery_yambms_1_total_voltage
+            name: YamBMS total voltage
+          - entity: sensor.pv_battery_yambms_1_current
+            name: YamBMS current
+          - entity: sensor.pv_battery_yambms_1_power
+            name: YamBMS power
+          - type: divider
+          - entity: sensor.pv_battery_yambms_1_battery_charging_power
+            name: YamBMS charging power
+          - entity: sensor.pv_battery_yambms_1_battery_discharging_power
+            name: YamBMS discharging power
+          - type: divider
+          - entity: sensor.pv_battery_yambms_1_battery_capacity
+            name: YamBMS Battery Capacity
+          - entity: sensor.pv_battery_yambms_1_capacity_remaining
+            name: YamBMS Capacity Remaining
+          - entity: sensor.pv_battery_yambms_1_battery_soc
+            name: YamBMS Battery SoC
+          - entity: sensor.pv_battery_yambms_1_battery_soh
+            name: YamBMS Battery SoH
+          - type: divider
+          - entity: sensor.pv_battery_yambms_1_max_temperature
+            name: YamBMS Max temperature
+          - entity: sensor.pv_battery_yambms_1_min_temperature
+            name: YamBMS Min temperature
+        show_header_toggle: false
+        title: YamBMS Summary
+      - type: entities
+        entities:
+          - entity: sensor.pv_battery_yambms_1_min_cell_voltage
+            name: YamBMS Min Cell Voltage
+          - entity: sensor.pv_battery_yambms_1_max_cell_voltage
+            name: YamBMS Max Cell Voltage
+          - entity: sensor.pv_battery_yambms_1_delta_cell_voltage
+            name: YamBMS Delta Cell Voltage
+          - entity: sensor.pv_battery_yambms_1_min_voltage_cell
+            name: YamBMS Min Voltage Cell
+          - entity: sensor.pv_battery_yambms_1_max_voltage_cell
+            name: YamBMS Max Voltage Cell
+          - type: divider
+          - entity: binary_sensor.pv_battery_yambms_1_bms_equalizing_state
+            name: YamBMS BMS equalizing state
+          - entity: binary_sensor.pv_battery_yambms_1_bms_charging_allowed
+            name: YamBMS BMS charging allowed
+          - entity: binary_sensor.pv_battery_yambms_1_bms_discharging_allowed
+            name: YamBMS BMS discharging allowed
+          - type: divider
+          - entity: sensor.pv_battery_yambms_1_charging_cycles
+            name: YamBMS Charging Cycles
+          - entity: sensor.pv_battery_yambms_1_errors_bitmask_alarm
+            name: YamBMS Errors Bitmask Alarm
+          - entity: sensor.pv_battery_yambms_1_errors_bitmask_warning
+            name: YamBMS Errors Bitmask Warning
+        title: YamBMS Details
+      - graph: line
+        type: sensor
+        entity: sensor.pv_battery_yambms_1_battery_soc
+        detail: 2
+        hours_to_show: 24
+      - chart_type: line
+        period: 5minute
+        type: statistics-graph
+        entities:
+          - sensor.pv_battery_yambms_1_battery_soc
+        stat_types:
+          - mean
+          - min
+          - max
+        logarithmic_scale: false
+        hide_legend: false
+  - title: ESP32 Debug
+    path: esp32-debug
+    icon: ''
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.pv_battery_esp32_esphome_version
+            name: ESPHome version
+          - entity: sensor.pv_battery_esp32_ip_address
+            name: IP address
+          - entity: sensor.pv_battery_esp32_mac_address
+            name: MAC address
+          - entity: sensor.pv_battery_esp32_connected_ssid
+            name: Connected SSID
+          - entity: sensor.pv_battery_esp32_connected_bssid
+            name: Connected BSSID
+          - entity: sensor.pv_battery_esp32_wifi_power
+            name: WiFi RSSI
+          - entity: sensor.pv_battery_esp32_dns_address
+            name: DNS address
+          - type: divider
+          - entity: sensor.pv_battery_esp32_uptime
+            name: Uptime
+          - entity: sensor.pv_battery_esp32_internal_temperature
+            name: Internal temperature
+          - type: divider
+          - entity: sensor.pv_battery_debug_heap_free
+            name: Heap free
+          - entity: sensor.pv_battery_debug_heap_free_percent
+            name: Heap free percent
+          - entity: sensor.pv_battery_debug_heap_max_block
+            name: Heap max block
+          - entity: sensor.pv_battery_debug_loop_time
+            name: Loop time
+          - type: divider
+          - entity: binary_sensor.pv_battery_canbus_1_status
+            name: CANBUS Status
+          - entity: sensor.pv_battery_canbus_1_inverter_heartbeat
+            name: Inverter Heartbeat
+          - entity: switch.pv_battery_canbus_1_inverter_heartbeat_monitoring
+            name: Inverter Heartbeat Monitoring
+          - entity: binary_sensor.pv_battery_inverter_communication_status
+            name: Inverter communication status
+          - type: divider
+          - entity: button.pv_battery_esp32_factory_reset
+            name: Factory Reset
+          - entity: button.pv_battery_esp32_restart
+            name: Restart
+        title: ESP32 Debug Info
+  - title: Studer
+    path: studer
+    badges: []
+    cards:
+      - type: entities
+        entities:
+          - entity: sensor.studer_1_input_active_power
+          - entity: sensor.studer_1_input_apparent_power
+          - type: divider
+          - entity: sensor.studer_1_output_active_power
+          - entity: sensor.studer_1_output_apparent_power
+          - type: divider
+          - entity: sensor.studer_1_temperature
+          - entity: sensor.studer_1_battery_current
+        title: Studer 1
+      - type: entities
+        entities:
+          - entity: sensor.studer_2_input_active_power
+          - entity: sensor.studer_2_input_apparent_power
+          - type: divider
+          - entity: sensor.studer_2_output_active_power
+          - entity: sensor.studer_2_output_apparent_power
+          - type: divider
+          - entity: sensor.studer_2_temperature
+          - entity: sensor.studer_2_battery_current
+        title: Studer 2
+      - type: entities
+        entities:
+          - entity: sensor.studer_3_input_active_power
+          - entity: sensor.studer_3_input_apparent_power
+          - type: divider
+          - entity: sensor.studer_3_output_active_power
+          - entity: sensor.studer_3_output_apparent_power
+          - type: divider
+          - entity: sensor.studer_3_temperature
+          - entity: sensor.studer_3_battery_current
+        title: Studer 3
+      - type: entities
+        entities:
+          - entity: sensor.studer_4_input_active_power
+          - entity: sensor.studer_4_input_apparent_power
+          - type: divider
+          - entity: sensor.studer_4_output_active_power
+          - entity: sensor.studer_4_output_apparent_power
+          - type: divider
+          - entity: sensor.studer_4_temperature
+          - entity: sensor.studer_4_battery_current
+        title: Studer 4
+      - type: entities
+        entities:
+          - entity: sensor.studer_l1_input_active_power
+          - entity: sensor.studer_l1_input_apparent_power
+          - type: divider
+          - entity: sensor.studer_l1_output_active_power
+          - entity: sensor.studer_l1_output_apparent_power
+          - type: divider
+          - entity: sensor.studer_l1_battery_current
+        title: Studer Phase L1
+      - type: entities
+        entities:
+          - entity: sensor.studer_l2_input_active_power
+          - entity: sensor.studer_l2_input_apparent_power
+          - type: divider
+          - entity: sensor.studer_l2_output_active_power
+          - entity: sensor.studer_l2_output_apparent_power
+          - type: divider
+          - entity: sensor.studer_l2_battery_current
+        title: Studer Phase L2
+      - type: entities
+        entities:
+          - entity: sensor.studer_l3_input_active_power
+          - entity: sensor.studer_l3_input_apparent_power
+          - type: divider
+          - entity: sensor.studer_l3_output_active_power
+          - entity: sensor.studer_l3_output_apparent_power
+          - type: divider
+          - entity: sensor.studer_l3_battery_current
+        title: Studer Phase L3
+      - type: entities
+        entities:
+          - entity: sensor.studer_ac_output_frequency
+          - entity: sensor.studer_ac_total_input_apparent_power
+          - entity: sensor.studer_ac_total_input_active_power
+          - entity: sensor.studer_ac_total_output_apparent_power
+          - entity: sensor.studer_ac_total_output_active_power
+          - entity: sensor.studer_dc_battery_voltage
+        title: Studer Misc
