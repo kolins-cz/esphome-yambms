@@ -1,0 +1,82 @@
+# Updated : 2025.11.29
+# Version : 1.0.0
+# GitHub  : https://github.com/Sleeper85/esphome-yambms
+
+# YamBMS ( Yet another multi-BMS Merging Solution )
+
+# This YAML is free software: you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation, either version 3
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/gpl.html>.
+
+substitutions:
+  board_chip: "ESP32-C3"
+  board_name: "XIAO"
+  # Interfaces GPIOs
+  # uart_esp_1
+  tx_pin_1: '2'
+  rx_pin_1: '3'
+  # uart_esp_2 (ESP32-C3 has only 2 UARTs)
+  tx_pin_2: '4'
+  rx_pin_2: '5'
+  # uart_esp_3 - Not available on ESP32-C3
+  tx_pin_3: 'GPIO_NUM_NC'
+  rx_pin_3: 'GPIO_NUM_NC'
+  # canbus_esp32_can 
+  tx_pin_4: '8'
+  rx_pin_4: '9'
+  # canbus_mcp2515 - Use SPI for external CAN controller
+  spi_mosi_pin: '6'
+  spi_miso_pin: '5'
+  spi_clk_pin: '4'
+  mcp2515_cs_pin: '7'
+
+packages:
+  device_base: !include ../base/device_base.yaml
+  device_base_wifi: !include ../base/device_base_wifi.yaml
+
+esp32:
+  board: esp32-c3-devkitm-1
+  variant: esp32c3
+  framework:
+    type: esp-idf
+
+esphome:
+  platformio_options:
+    board_build.flash_mode: dio
+
+wifi:
+  id: my_network
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  domain: !secret domain
+
+logger:
+#  baud_rate: 0 # Disable UART0 logging, use USB CDC
+  hardware_uart: USB_CDC
+
+# +--------------------------------------+
+# | Inverter Heartbeat Light             |
+# +--------------------------------------+
+
+light:
+  # ESP Light used to see the inverter heartbeat
+  # Internal : only specifying an id without a name will implicitly set this to true.
+  - platform: binary
+    output: esp_led
+    id: esp_light
+
+output:
+  # ESP LED - Built-in LED on XIAO ESP32-C3
+  - platform: gpio
+    pin: 10
+    id: esp_led
+    inverted: true
